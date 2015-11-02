@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="style.css">
+    <title>etch a sketch</title>
+</head>
+
+<body>
+    <textarea id="source">
+layout: true
+class: huge-title, inverse, center, middle
+---
+#so tell me again why we're not refactoring?
+
+???
+
+`P` for presenter mode.
+
+`C` to open a cloned window.
+
+Go S.L.O.W.
+---
+layout: false
+class: middle
+# jordan rousseau
+## [@jvrousseau](http://twitter.com/jvrousseau)
+### [rousseau.io](http://rousseau.io)
+### [github.com/jvrousseau](http://github.com/jvrousseau)
+
+???
+
+
+---
+layout: false
+class: middle
+## [@weatherdectech](http://twitter.com/weatherdectech)
+## founded in 2000
+## 90+ employees and growing
+## south research campus at ou
+![Weather Decision Technologies](img/wdt_logo.png)
+
+???
+
+my company and if you want more information come chat with me after the talk!
+
+---
+##what am i trying to accomplish today
+
+- lay out reasons why its okay to refactor
+
+- lay out some ways to mimimize the need to refactor
+
+- connect the dots between an etch a sketch and development
+---
+layout: false
+class: center, middle
+
+# stetch goal
+![](img/etch-a-sketch.jpg)
+---
+##what am i not trying to say
+
+- all code should be rewritten
+
+- you should look to refactor at any given time
+
+- any minor change in an application should require refactoring
+---
+layout:false
+class: center, middle
+![](img/broken-tweet.png)
+---
+layout: false
+class: middle
+#caveats
+
+- this is what works for our team (most of the time)
+
+- you may think i'm completely wrong (i probably am)
+
+---
+layout: false
+class: middle, center
+#this is not for the perfect world
+
+???
+at the end of the day my team has to build products.
+we write good code
+we write code knowing that it will not be used very long
+deadlines and client expectations factor into how we build applications
+---
+
+layout:false
+class: center, middle
+#we eventually have to deliver
+![](img/closer-coffee.jpg)
+---
+#one last caveat
+
+- a team needs to have:
+
+  - trust
+
+  - respect
+
+  - open communication
+
+  - a voice
+
+???
+this is really for any team to succeeed
+but this is very important if you are talking about this subject
+---
+layout: false
+class: middle
+# why am i talking about this?
+- i write bad code
+
+- i'm a bad developer
+
+- wanting to refactor code admits the above
+
+???
+
+expectations of perfection in writing code is not reasonable. sometimes it brings on the feelings of imposter syndrome
+heaven forbid you do something wrong
+---
+layout: false
+class: middle
+#why does my code suck?
+---
+.left-column[
+ ### perfect world
+]
+.right-column[
+
+- requirements are set well before development starts
+
+- third party libraries are static (or at least interfaces never change)
+
+- technologies are never modified
+
+- one code project (constantly tweaking and improving)
+
+- code complexity analysis
+]
+---
+layout: false
+class: center, middle
+
+# stetch goal
+![](img/etch-a-sketch.jpg)
+---
+.left-column[
+ ### perfect world
+ ### real world
+]
+.right-column[
+
+- requirements change
+
+- scopes change
+
+- use cases change
+
+- third party libraries are updated rapidly
+
+- third party libraries are deprecated or abandoned
+
+- new workflows are introduced
+
+- dozens of projects (some haven't been touched in years)
+
+- something new comes out that is just plain better for your use-case
+
+]
+???
+does it really make sense to keep on building on top of a framework or module when you know that something else out there is better?
+---
+layout: false
+class: center, middle
+
+# regret is bad
+![](img/longing.jpg)
+---
+layout: false
+class: middle
+
+##last year i created a [demo](https://github.com/jvrousseau/thunderplains-prototype-demo) with hapijs.
+
+##using version 6.9.0
+##~~today's version 10.4.1~~
+##~~today's version 10.5.0~~
+##~~today's version 11.0.0~~
+##~~today's version 11.0.1~~
+##today's version [11.0.3](https://github.com/hapijs/hapi/blob/master/package.json#L5)
+
+???
+not saying version history means things change so much you have to refactor...
+you need to keep up with your dependencies so you don't have a problem on your hands months later
+---
+layout:false
+class: middle
+
+##2013 - workflow control library used [async.js](https://github.com/caolan/async)
+<br/>
+##today - we use [bluebird](https://github.com/petkaantonov/bluebird)
+
+---
+layout:false
+class: middle
+#question?
+
+##does using async.js in 2013 mean we were bad developers?
+<br/>
+##does a team that started using async.js this year mean they are bad developers?
+
+---
+layout:false
+class: center, middle
+#(rhetorical question)
+![](img/troll-feeding.jpg)
+---
+layout:false
+class: middle
+#migrating to bluebird (get it??)
+
+- we had to change a lot of code
+
+- some projects still uses asnyc.js
+
+- when we add functionality to old code we will refactor to use bluebird
+???
+it should be a team-wide decision a singular person should make a decision that will impact the entire team
+---
+layout: false
+class: center, middle
+
+##this happened more than a few times
+![](img/refactor-tweet.png)
+---
+layout:false
+class: center, middle
+
+##sometimes you just make mistakes
+![](img/progress-tweet.png)
+???
+one of the best lessons in development revolves around my review of code that i wrote 2-3 years ago
+
+---
+layout: false
+class: middle
+
+###_the idea that we are carving our code on stone tablets is toxic._
+---
+layout: false
+class: middle
+
+###_when you start treating your code as disposable, interesting things happen._
+---
+layout: false
+class: middle, center
+![](img/devin.jpg)
+##devin clark ([@idevinclark](http://twitter.com/idevinclark))
+---
+layout: false
+class: middle
+
+#keep refactoring in your back pocket
+???
+work to make your code re-usable and maintainable so you don't have to refactor
+if you're refactoring all the time, there's no room to improve the application
+---
+layout: false
+class: middle
+#when ~~refactoring~~ developing keep in mind:
+
+- re-usability
+
+- mantainability
+
+- dry
+
+- separation of concerns
+
+- it will never be perfect
+
+???
+just like an end-user product, code quality osciallates to something you are happy with
+---
+layout: false
+class: middle, center
+
+#you will eventually ask yourself, "what was i thinking?"
+???
+you will want to completely re-write a codebase you have already refactored!
+you aren't bad at what you do. you have grown since you last looked at it
+---
+layout: false
+class: middle, center
+
+![](img/thats-okay.png)
+---
+layout: false
+class: middle, center
+
+#what can be done to mitigate refactoring
+
+---
+.left-column[
+ ### documentation
+]
+.right-column[
+
+- helpful for maintainablity
+
+- you will be less likely to curse your past self
+
+- you will find the inconsistancies and innefficiencies in your code
+
+- rubber duck debugging
+
+]
+???
+documentation forces you to expalin the code to yourself
+---
+
+layout: false
+class: middle, center
+![](img/duck-chase.gif)
+---
+.left-column[
+ ### documentation
+ ### mini code reviews
+]
+.right-column[
+
+- create feature branches for any changes
+
+- before push to staging have a small code review
+
+- you will miss bugs if you have too many changes in a PR
+
+]
+???
+bugs you will have to eventually fix
+---
+layout: false
+class: middle, center
+![](img/code-review.png)
+---
+.left-column[
+ ### documentation
+ ### mini code reviews
+ ### microservices
+]
+.right-column[
+
+- small applications that do one thing well
+
+- pinpoint failures much easier
+
+- much less time investment on building each microservice
+
+- refactoring is much less daunting on microservice rather than a monolithic application
+
+]
+---
+layout: false
+class: middle, center
+![](img/refactor-tweet.png)
+
+???
+this was a merge from staging to production branches (tons of small changes)
+---
+layout: false
+class: middle
+# why am i talking about this?
+- ~~i write bad code~~ I want to write better code
+
+- ~~i'm a bad developer~~ I'm an improved developer
+
+- ~~wanting to refactor code admits the above~~ I want to make this application better
+
+???
+
+expectations of perfection in writing code is not reasonable. sometimes it brings on the feelings of imposter syndrome
+heaven forbid you do something wrong
+---
+#questions?
+
+##[jrousseau@wdtinc.com](mailto:jrousseau@wdtinc.com)
+
+###[@jvrousseau](http://twitter.com/jvrousseau)
+
+###slides: [rousseau.io/thunderplains-node](http://rousseau.io/thunderplains-node)
+
+
+    </textarea>
+    <script src="remark.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var hljs = remark.highlighter.engine;
+    </script>
+    <!--<script src="js/remark.language.js" type="text/javascript"></script>-->
+    <script type="text/javascript">
+        var slideshow = remark.create({
+            ratio: '4:3',
+            highlightStyle: 'tomorrow',
+            highlightLanguage: 'remark'
+        });
+    </script>
+</body>
+
+</html>
